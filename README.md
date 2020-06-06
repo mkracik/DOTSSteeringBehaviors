@@ -40,7 +40,7 @@ You can use Unity's GameObject conversion system like in the included sample pre
 ## Notes
 *Arrival* behavior is modified so that ships can smoothly slow down at a predefined distance from their target.
 
-*Unaligned Collision Avoidance* behavior needs fine tuning with regard to ship speed and target visibility range. It is trying to locally avoid one nearest ship and sometimes collides with another ship. Its algorithm's complexity is O(N<sup>2</sup>): every *SBAvoidanceSource* avoids every *SBAvoidanceTarget* in its visibility range. It is optimized from OpenSteer's straightforward implementation with Unity DOTS: inner loop data is precomputed once and stored in a cache-friendly array; and Unity's Burst compiler is used. As a result, in later stages of the game Chronostation there can be hundreds of ships and targets while maintaining 60 FPS on low-end hardware.
+*Unaligned Collision Avoidance* behavior needs fine tuning with regard to ship speed and target visibility range. It is trying to locally avoid one nearest ship and sometimes collides with another ship. Its algorithm's complexity is *O(N<sup>2</sup>)*: every *SBAvoidanceSource* avoids every *SBAvoidanceTarget* in its visibility range. It is optimized from OpenSteer's straightforward implementation with Unity DOTS: inner loop data is precomputed once and stored in a cache-friendly array; and Unity's Burst compiler is used. As a result, in later stages of the game Chronostation there can be hundreds of ships and targets while maintaining 60 FPS on low-end hardware.
 
 Physics is implemented very simply (only maximum speed works; mass and maximum force do nothing) because it was not adding to realism but was introducing variables which were difficult to tune. It would be best to use [Unity DOTS Physics package](https://docs.unity3d.com/Packages/com.unity.physics@0.0/manual/index.html) instead of trying to implement own physics.
 
@@ -58,5 +58,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 * [Steering Behaviors For Autonomous Characters](https://www.red3d.com/cwr/steer/gdc99/).
-* [OpenSteer C++ library].(http://opensteer.sourceforge.net/)
+* [OpenSteer C++ library](http://opensteer.sourceforge.net/).
 * [Unity Space Shooter Tutorial](https://github.com/lukearmstrong/unity-tutorial-space-shooter) for the example spaceship model.
